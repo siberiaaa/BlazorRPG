@@ -1,12 +1,18 @@
 using blazorpg.Components;
+using blazorpg.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
+
+// builder.Services.AddRazorData.Services()
+//     .AddInteractiveServerComponents();
+
+builder.Services.AddRazorComponents()         //aaaaaaaaa
     .AddInteractiveServerComponents();
 
- builder.Services.AddSingleton<CharactersBase>(); //indica lo de la inyeccion de dependencias  
+builder.Services.AddSingleton<CharacterService>(); 
+builder.Services.AddSingleton<WeatherForecastService>(); 
 
 var app = builder.Build();
 

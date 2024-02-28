@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Of6UlCIXTgJsSsqkd8s6AQ3t8b/chA/IjpZSLxTmgyrs+qKEFiVuWPZfv1JU9UDo+z+isT+NNW9L/PU6opvogQ==",
+  "dgSpecHash": "kAkZqjBK4XV2+bd4Him8nq5vMc1hOgR1O45vYrIZV1vI1HIfCgVsH4Q3kT/bN7c1DItKe8v21/l8AWYKDqk0dg==",
   "success": true,
   "projectFilePath": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\blazorpg.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Siberia\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

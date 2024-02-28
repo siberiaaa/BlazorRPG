@@ -6,7 +6,7 @@
 <PageTitle>Characters list</PageTitle>
 <h1>Characters</h1>
 
-@if (CharacterList == null)
+@if (ListCharacter == null)
 {
     <p><em>Character list is empty.</em></p>
 }
@@ -23,7 +23,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var character in CharacterList)
+            @foreach (var character in ListCharacter)
             {
                 <tr>
                     <td>@character.ID</td>
@@ -31,45 +31,11 @@ else
                     <td>@character.Level</td>
                     <td>@character.HP</td>
                     <td>@character.MP</td>
-                    <td><button @onclick="() => Modify(character.ID)">Modify</button></td>
-                    <td><button @onclick="() => Delete(character.ID)">Remove</button></td>
+                    <td><button>Modify</button></td>
+                    <td><button>Remove</button></td>
                 </tr>
             }
         </tbody>
     </table>
     <button @onclick="Create">Create</button>
-
-    <form>
-        <label for="id">
-            <span id="id">ID</span>
-            <input type="text" name="id" @bind="ID" class="form-control">
-        </label>
-
-        <label for="name">
-            <span id="name">Name</span>
-            <input type="text" name="name" @bind="Name" class="form-control">
-        </label>
-
-        <label for="level">
-            <span id="level">Level</span>
-            <input type="text" name="level" @bind="Level" class="form-control">
-        </label>
-
-        <label for="hp">
-            <span id="hp">HP</span>
-            <input type="text" name="hp" @bind="HP" class="form-control">
-        </label>
-
-        <label for="mp">
-            <span id="mp">MP</span>
-            <input type="text" name="mp" @bind="MP" class="form-control">
-        </label>
-
-    </form>
-
-
-    <button type="submit" class="btn btn-dark" @onclick="Add">Add character</button>
-    @* <button type="submit" class="btn btn-dark" @onclick="Modify">Modify character</button>
-    <button type="submit" class="btn btn-dark" @onclick="Delete">Delete character</button> *@
-
 }

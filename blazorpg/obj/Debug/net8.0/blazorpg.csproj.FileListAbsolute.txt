@@ -27,3 +27,7 @@ D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorp
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.pdb
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.genruntimeconfig.cache
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\ref\blazorpg.dll
+D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.csproj.AssemblyReference.cache
+D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.sourcelink.json
+D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.csproj.CopyComplete

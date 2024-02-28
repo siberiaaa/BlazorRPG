@@ -1,0 +1,30 @@
+@page "/characters/create"
+@rendermode InteractiveServer
+@inherits CharacterCreateBase
+
+<EditForm Model="@character" OnValidSubmit="Post" >
+    <div class="form-group">
+        <label>ID: </label>
+        <InputNumber @bind-Value="character.ID" />
+    </div>
+    <div class="form-group">
+        <label>Name: </label>
+        <InputText @bind-Value="character.Name" />
+    </div>
+    <div class="form-group">
+        <label>Level: </label>
+        <InputNumber @bind-Value="character.Level" />
+    </div>
+    <div class="form-group">
+        <label>HP: </label>
+        <InputNumber @bind-Value="character.HP" />
+    </div>
+    <div class="form-group">
+        <label>MP: </label>
+        <InputNumber @bind-Value="character.MP" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Add"/>
+    </div>
+</EditForm>
