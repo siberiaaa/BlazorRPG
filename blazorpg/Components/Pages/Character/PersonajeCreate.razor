@@ -1,0 +1,67 @@
+@page "/personaje/create"
+@rendermode InteractiveServer
+
+
+
+@inherits PersonajeCreateBase
+
+<p>@mensaje</p>
+
+<EditForm Model="@personaje" OnValidSubmit="Post">
+    <div class="form-group">
+        <label>Título: </label>
+        <InputNumber @bind-Value="personaje.id" />
+    </div>
+    <div class="form-group">
+        <label>Nombre</label>
+        <InputText @bind-Value="personaje.nombre" />
+    </div>
+    <div class="form-group">
+        <label>Tipo: </label>
+        <InputNumber @bind-Value="personaje.tipoId" />
+    </div>
+    <div class="form-group">
+        <label>estamina: </label>
+        <InputNumber @bind-Value="personaje.estamina" />
+    </div>
+    <div class="form-group">
+        <label>inteligencia: </label>
+        <InputNumber @bind-Value="personaje.inteligencia" />
+    </div>
+    <div class="form-group">
+        <label>fuerza: </label>
+        <InputNumber @bind-Value="personaje.fuerza" />
+    </div>
+    <div class="form-group">
+        <label>resistencia: </label>
+        <InputNumber @bind-Value="personaje.resistencia" />
+    </div>
+    <div class="form-group">
+        <label>defensa: </label>
+        <InputNumber @bind-Value="personaje.defensa" />
+    </div>
+    <div class="form-group">
+        <label>experiencia: </label>
+        <InputNumber @bind-Value="personaje.experiencia" />
+    </div>
+    <div class="form-group">
+        <label>nivel: </label>
+        <InputNumber @bind-Value="personaje.nivel" />
+    </div>
+    <div class="form-group">
+        <label>HP: </label>
+        <InputNumber @bind-Value="personaje.HP" />
+    </div>
+
+    <div class="form-group">
+        <label>MP: </label>
+        <InputNumber @bind-Value="personaje.MP" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Agregar" />
+    </div>
+</EditForm>
+
+<p>@personaje.nombre</p>  
+<p>@personaje.estamina</p>

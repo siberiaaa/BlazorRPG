@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\blazorpg.bundle.scp.css",
+      "PackagePath": "staticwebassets\\blazorpg.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Siberia\\Estudios\\Gracosoft\\Nivel III\\Siberia 3\\ASP.NET Core\\BlazorRPG\\blazorpg\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.blazorpg.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.blazorpg.props",
+      "PackagePath": "build\\blazorpg.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.blazorpg.props",
+      "PackagePath": "buildMultiTargeting\\blazorpg.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.blazorpg.props",
+      "PackagePath": "buildTransitive\\blazorpg.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

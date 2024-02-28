@@ -1,0 +1,43 @@
+@page "/personajes"
+@rendermode InteractiveServer
+@inherits PersonajesBase
+
+<PageTitle>Lista Personajes</PageTitle>
+
+<h1>Lista de personajes</h1>
+
+@if(lstPersonaje == null) {
+    <p><em>Loading...</em></p>
+}
+else {
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Tipo de personae</th>
+                <th>Nivel</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var personaje in lstPersonaje){
+                <tr>
+                    <td>@personaje.id</td>
+                    <td>@personaje.nombre</td>
+                    <td>@personaje.tipo.nombre</td>
+                    <td>@personaje.nivel</td>
+                    <td><button>Modificar</button></td>
+                    <td><button>Eliminar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button @onclick="Create" >Crear</button>
+}
+
+        
+
+
+
