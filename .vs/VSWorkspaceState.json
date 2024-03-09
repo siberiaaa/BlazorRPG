@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\blazorpg",
+    "\\blazorpg\\Components",
+    "\\blazorpg\\Components\\Pages",
+    "\\blazorpg\\Components\\Pages\\Character"
+  ],
+  "SelectedNode": "\\blazorpg\\Components\\Pages\\CharacterCard.razor",
+  "PreviewInSolutionExplorer": false
+}

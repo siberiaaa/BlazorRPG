@@ -1,19 +1,30 @@
-@page "/characters/create"
+@* @page "/characters/create" *@
 @rendermode InteractiveServer
-@inherits CharacterCreateBase
+
+<p>@message</p> @*Para ver y aja*@
 
 <EditForm Model="@character" OnValidSubmit="Post" >
+    <DataAnnotationsValidator />
     <div class="form-group">
         <label>ID: </label>
-        <InputNumber @bind-Value="character.ID" />
+        <InputNumber @bind-Value="character.ID"/>
+    </div>
+    <div class="form-group">
+        <label>Url image: </label>
+        <InputText @bind-Value="character.UrlImage" />
     </div>
     <div class="form-group">
         <label>Name: </label>
         <InputText @bind-Value="character.Name" />
+        <ValidationMessage For="@(() => character.Name)"/>
     </div>
     <div class="form-group">
         <label>Level: </label>
         <InputNumber @bind-Value="character.Level" />
+    </div>
+    <div class="form-group">
+        <label>Type: </label>
+        <InputNumber @bind-Value="character.CharacterTypeId" />
     </div>
     <div class="form-group">
         <label>HP: </label>
@@ -23,8 +34,30 @@
         <label>MP: </label>
         <InputNumber @bind-Value="character.MP" />
     </div>
+    <div class="form-group">
+        <label>IQ: </label>
+        <InputNumber @bind-Value="character.IQ" />
+        <ValidationMessage For="@(() => character.IQ)"/>
+    </div>
+    <div class="form-group">
+        <label>Strenght: </label>
+        <InputNumber @bind-Value="character.Strenght" />
+        <ValidationMessage For="@(() => character.Strenght)"/>
+    </div>
+    <div class="form-group">
+        <label>Agility: </label>
+        <InputNumber @bind-Value="character.Agility" />
+        <ValidationMessage For="@(() => character.Agility)"/>
+    </div>
+
+    <div class="form-group">
+    <label>Exp: </label>
+    <InputNumber @bind-Value="character.Exp" />
+    </div>
 
     <div class="form-group">
         <input type="submit" class="btn btn-success" value="Add"/>
     </div>
+    <ValidationSummary/>
 </EditForm>
+

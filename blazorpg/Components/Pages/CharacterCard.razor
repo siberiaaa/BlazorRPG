@@ -1,0 +1,13 @@
+@page "/Lista"
+<img src=""/>
+<div>
+    <h1>@character</h1>
+    <progress>@character.HP</progress>
+    <progress>@character.MP</progress>
+</div>
+
+
+@code {
+    [Parameter]
+    public blazorpg.Data.Models.Character character { get; set; }
+}

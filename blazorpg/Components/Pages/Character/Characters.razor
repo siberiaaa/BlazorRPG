@@ -1,6 +1,5 @@
 @page "/characters"
 @rendermode InteractiveServer
-@inherits CharactersBase
 
 
 <PageTitle>Characters list</PageTitle>
@@ -8,7 +7,7 @@
 
 @if (ListCharacter == null)
 {
-    <p><em>Character list is empty.</em></p>
+    <p><em>Character list is empty (or not loaded~).</em></p>
 }
 else
 {
@@ -17,9 +16,8 @@ else
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Character type</th>
                 <th>Level</th>
-                <th>HP</th>
-                <th>MP</th>
             </tr>
         </thead>
         <tbody>
@@ -28,14 +26,16 @@ else
                 <tr>
                     <td>@character.ID</td>
                     <td>@character.Name</td>
+                    <td>@character.CharacterType.Name</td>
                     <td>@character.Level</td>
-                    <td>@character.HP</td>
-                    <td>@character.MP</td>
-                    <td><button>Modify</button></td>
-                    <td><button>Remove</button></td>
+                   
+                    <td><button @onclick="(() => Update(character.ID.ToString(), characterCreate.character))">Modify</button></td>
+                    <td><button @onclick="(() => Remove(character.ID.ToString()))">Remove</button></td>
                 </tr>
             }
         </tbody>
     </table>
-    <button @onclick="Create">Create</button>
+    @* <button @onclick="Create">Create</button> *@
 }
+
+<CharacterCreate @ref="characterCreate" UpdateList="@GetAll" />

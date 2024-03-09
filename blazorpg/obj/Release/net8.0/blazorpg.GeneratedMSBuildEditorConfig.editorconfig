@@ -1,0 +1,67 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = blazorpg
+build_property.RootNamespace = blazorpg
+build_property.ProjectDir = D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/CharacterCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Character/CharacterCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJcQ2hhcmFjdGVyQ3JlYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Character/Characters.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJcQ2hhcmFjdGVycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Counter/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyXENvdW50ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Weather/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyXFdlYXRoZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-84akj56ct1
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-qxuayfcjt5

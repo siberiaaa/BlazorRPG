@@ -1,4 +1,6 @@
 using blazorpg.Data.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Newtonsoft.Json;
 using System.Text; //encoding
 
@@ -7,44 +9,114 @@ namespace blazorpg.Data.Services;
 
 public class CharacterService
 {
-    public async Task<List<Character>> GetCharacters()
+    public async Task<Response<List<Character>>> GetCharacters()
     {
-        HttpClient httpClient = new HttpClient();
+        Response<List<Character>> response = new Response<List<Character>>();
+        List<Character> ListCharacter = new List<Character>();
 
-        string apiUrl = "https://localhost:7082/api/Character";
-        HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
-
-        if (response.IsSuccessStatusCode)
+        try
         {
-            string responseContent = await response.Content.ReadAsStringAsync();
-
-            List<Character> ListCharacter = JsonConvert.DeserializeObject<List<Character>>(responseContent); 
-
-            return ListCharacter;
+            response = await Consumer.Execute<List<Character>>("https://localhost:7082/api/Character", methodHttp.GET, ListCharacter);
         }
-        else
+        catch(Exception ex)
         {
-            return new List<Character>();
+
         }
+        return response;
+    }
+    public async Task<Response<string>> DeleteCharacter(string characterId)
+    {
+        Response<string> response = new Response<string>();
+        try
+        {
+            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.DELETE, null);
+        }
+        catch(Exception ex)
+        {
+
+        }
+        return response;
     }
 
-    public async Task<OkResponse> AddCharacter(Character character)
+    public async Task<Response<Character>> UpdateCharacter(string characterId, Character character)
     {
-        string apiUrl = "https://localhost:7082/api/Character";  //7128
-        var data = new StringContent(JsonConvert.SerializeObject(character), Encoding.UTF8, "application/json");
-
-        HttpClient httpClient = new HttpClient();
-        //data.Headers.Add("Authorization", "value"); //header example
-        HttpResponseMessage response = await httpClient.PostAsync(apiUrl, data);
-        string responseContent = await response.Content.ReadAsStringAsync();
-        if (response.IsSuccessStatusCode)
+        Response<Character> response = new Response<Character>();
+        try
         {
-            return OkResponse.yes;
+            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.PUT, character);
+        }
+        catch (Exception ex)
+        {
 
         }
-        else
-        {
-            return OkResponse.no;
-        }
+        return response;
     }
+
+    public async Task<Response<string>> AddCharacter(Character character)
+    {
+        Response<string> response = new Response<string>();
+        try
+        {
+            response.Message = (await Consumer.Execute<Character>("https://localhost:7082/api/Character", methodHttp.GET, character)).Message;
+            
+            //!return response.Message;
+
+            // string apiUrl = "https://localhost:7082/api/Character";  //7128
+            // var data = new StringContent(JsonConvert.SerializeObject(character), Encoding.UTF8, "application/json");
+
+            // HttpClient httpClient = new HttpClient();
+            // //data.Headers.Add("Authorization", "value"); //header example
+            // HttpResponseMessage response = await httpClient.PostAsync(apiUrl, data);
+            // string responseContent = await response.Content.ReadAsStringAsync();
+            // if (response.IsSuccessStatusCode)
+            // {
+            //     return OkResponse.yes;
+
+            // }
+            // else
+            // {
+            //     return OkResponse.no;
+            // }
+
+            
+        }
+        catch
+        {
+
+        }
+
+        return response;    
+    }
+
+    public async Task<Response<Character>> HealCharacter(string characterId)
+    {
+        Response<Character> response = new Response<Character>();
+        try
+        {
+            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.POST, null);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return response;
+    }
+
+    public async Task<Response<string>> AttackEnemy(string characterId, string enemyId)
+    {
+        Response<string> response = new Response<string>();
+        try
+        {
+            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character?idCharacter={characterId}&idEnemy={enemyId}", methodHttp.POST, null);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return response;
+
+    }
+
+
+
 }
