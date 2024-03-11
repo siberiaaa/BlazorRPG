@@ -1,5 +1,41 @@
-﻿<h3>Enemies</h3>
+﻿@page "/enemies"
+@rendermode InteractiveServer
 
-@code {
 
+<PageTitle>Enemies list</PageTitle>
+<h1>Enemies</h1>
+
+@if (ListEnemy == null)
+{
+            <p><em>Enemies list is empty (or not loaded~).</em></p>
 }
+else
+{
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Level</th>
+                    <th>Reward</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var enemy in ListEnemy)
+            {
+                        <tr>
+                            <td>@enemy.ID</td>
+                            <td>@enemy.Name</td>
+                            <td>@enemy.Level</td>
+                            <td>@enemy.Reward</td>
+
+                            <td><button @onclick="(() => Update(enemy.ID.ToString(), enemyCreate.enemy))">Modify</button></td>
+                            <td><button @onclick="(() => Remove(enemy.ID.ToString()))">Remove</button></td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+    @* <button @onclick="Create">Create</button> *@
+}
+
+<EnemyCreate @ref="enemyCreate" UpdateList="@GetAll" />

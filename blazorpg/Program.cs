@@ -11,7 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()         //aaaaaaaaa
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<CharacterService>(); 
+builder.Services.AddSingleton<CharacterService>();
+builder.Services.AddSingleton<CharacterTypeService>();
+builder.Services.AddSingleton<EnemyService>();
+
 builder.Services.AddSingleton<WeatherForecastService>(); 
 
 var app = builder.Build();

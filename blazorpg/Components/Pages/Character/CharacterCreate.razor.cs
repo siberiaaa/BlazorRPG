@@ -18,8 +18,8 @@ public partial class CharacterCreate : ComponentBase
     public string message = "";
     public async Task Post()
     {
-
-        Response<string> respuesta = await CharacterService.AddCharacter(character);
+        message = "";
+        Response<Data.Models.Character> respuesta = await CharacterService.AddCharacter(character);
 
         if (respuesta.Ok)
         {

@@ -1,0 +1,32 @@
+﻿@rendermode InteractiveServer
+
+<div>
+@if (character != null)
+{
+        <img src="@character.UrlImage"/>
+        <div>
+        @* <h1>Character</h1> *@
+        <h3>Id: @character.ID</h3>
+        <h3>Name: @character.Name</h3>
+        <h3>Level: @character.Level</h3>
+        <h3>HP: @character.HP</h3>
+        <h3>MP: @character.MP</h3>
+        </div>
+}
+else if(enemy != null)
+{
+            <img src="@enemy.UrlImage"/>
+            <div>
+            @* <h1>Enemy</h1> *@
+            <h3>Id: @enemy.ID</h3>
+            <h3>Name: @enemy.Name</h3>
+            <h3>Level: @enemy.Level</h3>
+            <h3>HP: @enemy.HP</h3>
+            <h3>Reward: @enemy.Reward</h3>
+            </div>
+}
+</div>
+
+
+
+

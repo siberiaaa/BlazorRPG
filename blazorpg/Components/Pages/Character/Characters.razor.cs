@@ -21,23 +21,31 @@ public partial class Characters : ComponentBase
             ListCharacter = (await CharacterService.GetCharacters()).Data;
         }
 
-        public void Create(){
-            Navigation.NavigateTo("/characters/create");
-        }
+        //public void Create(){
+        //    Navigation.NavigateTo("/characters/create");
+        //}
 
         public async Task Remove(string id)
         {
             var response = await CharacterService.DeleteCharacter(id);
 
-            //Modal response.Message
-        }
+
+                await GetAll();
+        
+
+        //Modal response.Message
+    }
 
         public async Task Update(string id, Data.Models.Character character)
         {
             var response = await CharacterService.UpdateCharacter(id, character);
-        
-            //Modal response.Message
-        }
+            if (response.Ok)
+            {
+                await GetAll();
+            }
+
+        //Modal response.Message
+    }
 
     public async Task GetAll()
         {

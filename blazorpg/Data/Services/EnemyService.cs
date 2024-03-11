@@ -1,5 +1,4 @@
 using blazorpg.Data.Models;
-using Core.Entities;
 
 namespace blazorpg.Data.Services;
 
@@ -25,7 +24,7 @@ public class EnemyService
         Response<string> response = new Response<string>();
         try
         {
-            response = await Consumer.Execute<string>($"https://localhost:7082/api/Enemy?id={enemyId}", methodHttp.DELETE, null);
+            response = await Consumer.Execute<string>($"https://localhost:7082/api/Enemy/{enemyId}", methodHttp.DELETE, null);
         }
         catch (Exception ex)
         {
@@ -39,7 +38,7 @@ public class EnemyService
         Response<Enemy> response = new Response<Enemy>();
         try
         {
-            response = await Consumer.Execute<Enemy>($"https://localhost:7082/api/Enemy?id={enemyId}", methodHttp.PUT, enemy);
+            response = await Consumer.Execute<Enemy>($"https://localhost:7082/api/Enemy/{enemyId}", methodHttp.PUT, enemy);
         }
         catch (Exception ex)
         {
@@ -48,12 +47,12 @@ public class EnemyService
         return response;
     }
 
-    public async Task<Response<string>> AddEnemy(Enemy enemy)
+    public async Task<Response<Enemy>> AddEnemy(Enemy enemy)
     {
-        Response<string> response = new Response<string>();
+        Response<Enemy> response = new Response<Enemy>();
         try
         {
-            response.Message = (await Consumer.Execute<Enemy>("https://localhost:7082/api/Enemy", methodHttp.GET, enemy)).Message;
+            response = (await Consumer.Execute<Enemy>("https://localhost:7082/api/Enemy", methodHttp.POST, enemy));
 
         }
         catch

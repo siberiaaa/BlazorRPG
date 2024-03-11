@@ -2,6 +2,7 @@ using blazorpg.Data.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 using System.Text; //encoding
 
 
@@ -29,7 +30,7 @@ public class CharacterService
         Response<string> response = new Response<string>();
         try
         {
-            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.DELETE, null);
+            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character/{characterId}", methodHttp.DELETE, null);
         }
         catch(Exception ex)
         {
@@ -43,7 +44,7 @@ public class CharacterService
         Response<Character> response = new Response<Character>();
         try
         {
-            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.PUT, character);
+            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character/{characterId}", methodHttp.PUT, character);
         }
         catch (Exception ex)
         {
@@ -52,12 +53,12 @@ public class CharacterService
         return response;
     }
 
-    public async Task<Response<string>> AddCharacter(Character character)
+    public async Task<Response<Character>> AddCharacter(Character character)
     {
-        Response<string> response = new Response<string>();
+        Response<Character> response = new Response<Character>();  
         try
         {
-            response.Message = (await Consumer.Execute<Character>("https://localhost:7082/api/Character", methodHttp.GET, character)).Message;
+            response = (await Consumer.Execute<Character>("https://localhost:7082/api/Character", methodHttp.POST, character));
             
             //!return response.Message;
 
@@ -93,7 +94,7 @@ public class CharacterService
         Response<Character> response = new Response<Character>();
         try
         {
-            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character?id={characterId}", methodHttp.POST, null);
+            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character/Heal?id={characterId}", methodHttp.POST, null);
         }
         catch (Exception ex)
         {
@@ -107,7 +108,7 @@ public class CharacterService
         Response<string> response = new Response<string>();
         try
         {
-            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character?idCharacter={characterId}&idEnemy={enemyId}", methodHttp.POST, null);
+            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character/AttackEnemy?idCharacter={characterId}&idEnemy={enemyId}", methodHttp.POST, "");
         }
         catch (Exception ex)
         {

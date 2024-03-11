@@ -22,12 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/CharacterCard.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJDYXJkLnJhem9y
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Attack/Attack.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdHRhY2tcQXR0YWNrLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/CharacterType/CharacterTypeCreator.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJUeXBlXENoYXJhY3RlclR5cGVDcmVhdG9yLnJhem9y
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Attack/CharacterCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdHRhY2tcQ2hhcmFjdGVyQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/CharacterType/CharacterTypeCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJUeXBlXENoYXJhY3RlclR5cGVDcmVhdGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/CharacterType/CharacterTypes.razor]
@@ -50,8 +54,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbmVteVxFbmVtaWVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Enemy/EnemyCreator.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbmVteVxFbmVteUNyZWF0b3IucmF6b3I=
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Enemy/EnemyCreate.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbmVteVxFbmVteUNyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Error.razor]
@@ -68,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Shared/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/_Imports.razor]

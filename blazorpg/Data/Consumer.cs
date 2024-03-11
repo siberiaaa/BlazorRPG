@@ -3,6 +3,9 @@ using System.Text;
 using blazorpg.Data.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
+using blazorpg.Components.Pages.Character;
+using System;
+using Microsoft.AspNetCore.Http;
 
 namespace blazorpg.Data;
 public class Consumer
@@ -27,6 +30,7 @@ public class Consumer
 
         public static async Task<Response<T>> Execute<T>(string url, methodHttp method, T objectRequest)
         {
+      
             Response<T> response = new Response<T>();
             try
             {
@@ -37,9 +41,9 @@ public class Consumer
                     //var myContent = JsonConvert.SerializeObject(objectRequest);
                     var bytecontent = new ByteArrayContent(Encoding.UTF8.GetBytes(myContent));
                     bytecontent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-
-                    //Si es get o delete no le mandamos bytecontent. Tremenda línea.
-                    var request = new HttpRequestMessage(CreateHttpMethod(method), url)
+                    
+                //Si es get o delete no le mandamos bytecontent. Tremenda línea.
+                var request = new HttpRequestMessage(CreateHttpMethod(method), url)
                     {
                         //Por regla general de las peticiones HTTP las peticiones tipo GET y DELETE no se le puede establecer el body
                         //Entonces valido, si method es distinta de GET y DELETE le asigno el contenido codificado, sino le asigno null
@@ -52,24 +56,49 @@ public class Consumer
                         {
                             string data = await content.ReadAsStringAsync();
                             if (data != null)
-                                response.Data = JsonConvert.DeserializeObject<T>(data);
+                            {
+                                if (typeof(T) == typeof(string)) //JsonConvert tonto da error al deserializar strings
+                                {
+                                    response.Data = (T)Convert.ChangeType(data, typeof(T));
+                                }
+                                else
+                                {
+                                    response.Data = JsonConvert.DeserializeObject<T>(data);
+                                }
+                            }
+                                
+                        
+                            
     
                             response.StatusCode = res.StatusCode.ToString();
+                            
+
+                            if (res.IsSuccessStatusCode)
+                            {
+                            response.Ok = true;
+                            }
+                
+                        
                         }
-                    }
                 }
-            }
+                }
+
+            //Console.WriteLine(response.Data);
+        }
             catch (WebException ex)
             {
                 response.StatusCode = "ServerError";
                 var res = (HttpWebResponse)ex.Response;
                 if (res != null)
                     response.StatusCode = response.StatusCode.ToString();
-            }
+                response.Ok = false; //?
+            if (!response.Ok) response.Message = $"Response not OK\nStatus code: {response.StatusCode}"; //asd
+        }
             catch (Exception ex)
             {
-                response.StatusCode = "AppError";
+                response.StatusCode = "App error";
                 response.Message = ex.Message;
+                response.Ok = false; //?
             }
             return response;
 

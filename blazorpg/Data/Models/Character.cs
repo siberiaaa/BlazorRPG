@@ -5,6 +5,7 @@ namespace blazorpg.Data.Models
     public class Character
     {
         public int ID { get; set; }
+        [Required(ErrorMessage = "UrlImage is a required field.")]
         public string? UrlImage { get; set; }
         [Required(ErrorMessage = "Name is a required field.")]
         public string? Name { get; set; }

@@ -26,7 +26,8 @@ else
                 <tr>
                     <td>@character.ID</td>
                     <td>@character.Name</td>
-                    <td>@character.CharacterType.Name</td>
+                    @* <td>@character.CharacterType.Name</td> así porque blablabla*@
+                    <td>@character.CharacterTypeId</td>
                     <td>@character.Level</td>
                    
                     <td><button @onclick="(() => Update(character.ID.ToString(), characterCreate.character))">Modify</button></td>

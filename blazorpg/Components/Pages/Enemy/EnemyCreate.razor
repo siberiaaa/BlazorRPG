@@ -1,0 +1,47 @@
+﻿@rendermode InteractiveServer
+
+<h3>Enemy</h3>
+
+<p>@message</p> @*Para ver y aja*@
+
+<EditForm Model="@enemy" OnValidSubmit="Post" >
+    <DataAnnotationsValidator />
+    @* <div class="form-group">
+        <label>ID: </label>
+        <InputNumber @bind-Value="enemy.ID"/>
+    </div> *@
+    <div class="form-group">
+        <label>Url image: </label>
+        <InputText @bind-Value="enemy.UrlImage" />
+        <ValidationMessage For="@(() => enemy.UrlImage)"/>
+    </div>
+    <div class="form-group">
+        <label>Name: </label>
+        <InputText @bind-Value="enemy.Name" />
+        <ValidationMessage For="@(() => enemy.Name)"/>
+    </div>
+    <div class="form-group">
+        <label>Abilities: </label>
+        <InputText @bind-Value="enemy.Abilities" />
+        <ValidationMessage For="@(() => enemy.Abilities)"/>
+    </div>
+    <div class="form-group">
+        <label>HP: </label>
+        <InputNumber @bind-Value="enemy.HP" />
+    </div>
+    <div class="form-group">
+        <label>Level: </label>
+        <InputNumber @bind-Value="enemy.Level" />
+        <ValidationMessage For="@(() => enemy.Level)"/>
+    </div>
+    <div class="form-group">
+        <label>Reward: </label>
+        <InputNumber @bind-Value="enemy.Reward" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Add"/>
+    </div>
+    <ValidationSummary/>
+</EditForm>
+

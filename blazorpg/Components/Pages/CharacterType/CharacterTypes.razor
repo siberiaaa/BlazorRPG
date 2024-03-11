@@ -1,5 +1,37 @@
-﻿<h3>CharacterTypes</h3>
+﻿@page "/charactertypes"
+@rendermode InteractiveServer
 
-@code {
 
+<PageTitle>Characters list</PageTitle>
+<h1>Characters</h1>
+
+@if (ListCharacterType == null)
+{
+        <p><em>Character type list is empty (or not loaded~).</em></p>
 }
+else
+{
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var charactertype in ListCharacterType)
+            {
+                        <tr>
+                        <td>@charactertype.ID</td>
+                        <td>@charactertype.Name</td>
+
+                        <td><button @onclick="() => Update(charactertype.ID.ToString(), characterTypeCreate.characterType)">Modify</button></td>
+                        <td><button @onclick="() => Remove(charactertype.ID.ToString())">Remove</button></td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+    @* <button @onclick="Create">Create</button> *@
+}
+
+<CharacterTypeCreate @ref="characterTypeCreate" UpdateList="@GetAll" />
