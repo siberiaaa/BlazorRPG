@@ -1,6 +1,8 @@
 ﻿@page "/attack"
 @rendermode InteractiveServer
 
+
+
 <h1>Chose your character and enemy to attack</h1>
 
 <h2>Characters</h2>
@@ -43,11 +45,13 @@ else
 	</div>
 
 
-<blazorpg.Components.Shared.Modal @ref="@ModalDialog" Title="Attack result">
+<Modal @ref="@ModalDialog" Title="Attack result">
     <div class="row">
 		<h1> @AttackResult </h1>
 
         <button class="btn btn-primary" @onclick="() => ModalDialog.Close()">Close</button>
     </div>
-</blazorpg.Components.Shared.Modal>
+</Modal>
 
+
+	

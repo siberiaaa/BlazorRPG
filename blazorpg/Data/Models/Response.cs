@@ -6,6 +6,4 @@ public class Response<TEntity>
         public bool Ok { get; set; }
         public string? Message { get; set; }
         public TEntity? Data { get; set; }
-
-
     }

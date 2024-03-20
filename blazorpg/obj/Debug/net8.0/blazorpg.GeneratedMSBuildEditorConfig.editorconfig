@@ -66,6 +66,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/LogIn/LogIn.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dJblxMb2dJbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/ModifyUser/ModifyUser.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RpZnlVc2VyXE1vZGlmeVVzZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Siberia/Estudios/Gracosoft/Nivel III/Siberia 3/ASP.NET Core/BlazorRPG/blazorpg/Components/Pages/Weather/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyXFdlYXRoZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

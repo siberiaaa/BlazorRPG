@@ -1,0 +1,30 @@
+@page "/login"
+@rendermode InteractiveServer
+
+<h3>modify user</h3>
+
+<p>@message</p> @*Para ver y aja*@
+
+<EditForm Model="@user" OnValidSubmit="ModifyUser" >
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label>ID: </label>
+        <InputNumber @bind-Value="user.ID"/>
+    </div>
+    <div class="form-group">
+        <label>Username: </label>
+        <InputText @bind-Value="user.Username" />
+        <ValidationMessage For="@(() => user.Username)"/>
+    </div>
+    <div class="form-group">
+        <label>Password: </label>
+        <InputText @bind-Value="user.Password" />
+        <ValidationMessage For="@(() => user.Password)"/>
+    </div>
+   
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Modify user"/>
+    </div>
+    <ValidationSummary/>
+</EditForm>
+
