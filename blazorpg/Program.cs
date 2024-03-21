@@ -1,5 +1,6 @@
 using blazorpg.Components;
 using blazorpg.Data.Services;
+using blazorpg.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()         //aaaaaaaaa
     .AddInteractiveServerComponents();
 
-builder.Services.AddSingleton<CharacterService>();
-builder.Services.AddSingleton<CharacterTypeService>();
-builder.Services.AddSingleton<EnemyService>();
+builder.Services.AddScoped<CharacterService>(); 
+builder.Services.AddScoped<CharacterTypeService>();
+builder.Services.AddScoped<EnemyService>();
+builder.Services.AddScoped<UserService>();
+//builder.Services.AddScoped<LocalStorageAccessor>(); uu
 
-builder.Services.AddSingleton<WeatherForecastService>(); 
+builder.Services.AddScoped<WeatherForecastService>(); 
 
 var app = builder.Build();
 

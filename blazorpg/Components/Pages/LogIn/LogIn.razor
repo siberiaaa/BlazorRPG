@@ -1,9 +1,9 @@
-@page "/login"
+@* @page "/register" *@
 @rendermode InteractiveServer
 
 <p>@message</p>
 
-if (@login)
+@if (login)
 {
     <h3>Log in</h3>
 
@@ -17,7 +17,7 @@ if (@login)
     </div>
     <div class="form-group">
         <label>Password: </label>
-        <InputText @bind-Value="user.Password" />
+        <InputText type="password" @bind-Value="user.Password" />
         <ValidationMessage For="@(() => user.Password)"/>
     </div>
 

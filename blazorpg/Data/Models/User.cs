@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace blazorpg.Data.Models;
 
 public class User

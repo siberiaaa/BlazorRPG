@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using blazorpg.Data.Models;
 using blazorpg.Data.Services;
 
 namespace blazorpg.Components.Pages.Character;
@@ -7,53 +6,70 @@ namespace blazorpg.Components.Pages.Character;
 public partial class Characters : ComponentBase
 {
     [Inject]
-    public NavigationManager Navigation {get;set;}
+    public NavigationManager Navigation { get; set; }
     [Inject]
     public CharacterService CharacterService { get; set; }
+    public List<Data.Models.Character>? ListCharacter { get; set; }
 
-    public List<Data.Models.Character>? ListCharacter {get;set;}
+    public string message = "";
 
     private CharacterCreate characterCreate;
 
-        protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
+    {
+        ListCharacter = new List<Data.Models.Character>();
+        var response = await CharacterService.GetCharacters();
+
+        if (response.Ok)
         {
-            ListCharacter = new List<Data.Models.Character>();
-            ListCharacter = (await CharacterService.GetCharacters()).Data;
+            ListCharacter = response.Data;
         }
-
-        //public void Create(){
-        //    Navigation.NavigateTo("/characters/create");
-        //}
-
-        public async Task Remove(string id)
+        else
         {
-            var response = await CharacterService.DeleteCharacter(id);
-
-
-                await GetAll();
-        
-
-        //Modal response.Message
+            message = response.Message;
+        }
     }
 
-        public async Task Update(string id, Data.Models.Character character)
+    public async Task Remove(string id)
+    {
+        var response = await CharacterService.DeleteCharacter(id);
+
+        await GetAll();
+
+    }
+
+    public async Task Update(string id, Data.Models.Character character)
+    {
+        var response = await CharacterService.UpdateCharacter(id, character);
+        if (response.Ok)
         {
-            var response = await CharacterService.UpdateCharacter(id, character);
-            if (response.Ok)
-            {
-                await GetAll();
-            }
+            await GetAll();
+        }
+        else
+        {
+            message = response.Message;
+        }
 
         //Modal response.Message
     }
 
     public async Task GetAll()
+    {
+        var response = await CharacterService.GetCharacters();
+
+
+        if (response.Ok)
         {
-            var response = await CharacterService.GetCharacters();
-
             ListCharacter = response.Data;
-
-            //return Task.CompletedTask; ns pq
         }
+        else
+        {
+            message = response.Message;
+        }
+
+
+
+        //return Task.CompletedTask; ns pq
+    }
 
 }

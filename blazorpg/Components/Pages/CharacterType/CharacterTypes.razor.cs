@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using blazorpg.Data.Services;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 
 namespace blazorpg.Components.Pages.CharacterType;
 
@@ -15,26 +13,29 @@ public partial class CharacterTypes : ComponentBase
     public List<Data.Models.CharacterType>? ListCharacterType { get; set; }
 
     private CharacterTypeCreate characterTypeCreate;
+    public string message = "";
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         ListCharacterType = new List<Data.Models.CharacterType>();
-        ListCharacterType = (await CharacterTypeService.GetCharacterTypes()).Data;
-    }
+        var response = await CharacterTypeService.GetCharacterTypes();
 
-    //public void Create()
-    //{
-    //    Navigation.NavigateTo("/charactertype/create");
-    //}
+        if (response.Ok)
+        {
+            ListCharacterType = response.Data;
+        }
+        else
+        {
+            message = response.Message;
+        }
+    }
 
     public async Task Remove(string id)
     {
         var response = await CharacterTypeService.DeleteCharacterType(id);
-    
-            await GetAll(); //ay dios
-        
 
-        //Modal response.Message
+        await GetAll(); //ay dios
+
     }
 
     public async Task Update(string id, Data.Models.CharacterType character)
@@ -44,6 +45,10 @@ public partial class CharacterTypes : ComponentBase
         {
             await GetAll();
         }
+        else
+        {
+            message = response.Message;
+        }
 
         //Modal response.Message
     }
@@ -52,7 +57,16 @@ public partial class CharacterTypes : ComponentBase
     {
         var response = await CharacterTypeService.GetCharacterTypes();
 
-        ListCharacterType = response.Data;
+        if (response.Ok)
+        {
+            ListCharacterType = response.Data;
+        }
+        else
+        {
+            message = response.Message;
+        }
+
+
 
         //return Task.CompletedTask; ns pq
     }

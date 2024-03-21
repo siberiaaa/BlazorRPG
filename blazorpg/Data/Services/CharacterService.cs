@@ -1,8 +1,8 @@
 using blazorpg.Data.Models;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text; //encoding
 
 
@@ -10,6 +10,13 @@ namespace blazorpg.Data.Services;
 
 public class CharacterService
 {
+    public readonly ProtectedLocalStorage _protectedLocalStorage;
+    public CharacterService(ProtectedLocalStorage protectedLocalStorage)
+    {
+        _protectedLocalStorage = protectedLocalStorage;
+    }
+
+
     public async Task<Response<List<Character>>> GetCharacters()
     {
         Response<List<Character>> response = new Response<List<Character>>();
@@ -17,9 +24,15 @@ public class CharacterService
 
         try
         {
-            response = await Consumer.Execute<List<Character>>("https://localhost:7082/api/Character", methodHttp.GET, ListCharacter);
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<List<Character>, List<Character>>("https://localhost:7082/api/Character", methodHttp.GET, ListCharacter, token);
         }
-        catch(Exception ex)
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
+        }
+        catch (Exception ex)
         {
 
         }
@@ -30,9 +43,15 @@ public class CharacterService
         Response<string> response = new Response<string>();
         try
         {
-            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character/{characterId}", methodHttp.DELETE, null);
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<string, string>($"https://localhost:7082/api/Character/{characterId}", methodHttp.DELETE, null, token);
         }
-        catch(Exception ex)
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
+        }
+        catch (Exception ex)
         {
 
         }
@@ -44,7 +63,13 @@ public class CharacterService
         Response<Character> response = new Response<Character>();
         try
         {
-            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character/{characterId}", methodHttp.PUT, character);
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<Character, Character>($"https://localhost:7082/api/Character/{characterId}", methodHttp.PUT, character, token);
+        }
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
         }
         catch (Exception ex)
         {
@@ -55,12 +80,13 @@ public class CharacterService
 
     public async Task<Response<Character>> AddCharacter(Character character)
     {
-        Response<Character> response = new Response<Character>();  
+        Response<Character> response = new Response<Character>();
         try
         {
-            response = (await Consumer.Execute<Character>("https://localhost:7082/api/Character", methodHttp.POST, character));
-            
-            //!return response.Message;
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<Character, Character>("https://localhost:7082/api/Character", methodHttp.POST, character, token);
+
 
             // string apiUrl = "https://localhost:7082/api/Character";  //7128
             // var data = new StringContent(JsonConvert.SerializeObject(character), Encoding.UTF8, "application/json");
@@ -79,14 +105,18 @@ public class CharacterService
             //     return OkResponse.no;
             // }
 
-            
+
+        }
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
         }
         catch
         {
 
         }
 
-        return response;    
+        return response;
     }
 
     public async Task<Response<Character>> HealCharacter(string characterId)
@@ -94,7 +124,13 @@ public class CharacterService
         Response<Character> response = new Response<Character>();
         try
         {
-            response = await Consumer.Execute<Character>($"https://localhost:7082/api/Character/Heal?id={characterId}", methodHttp.POST, null);
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<Character, Character>($"https://localhost:7082/api/Character/Heal?id={characterId}", methodHttp.POST, null, token);
+        }
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
         }
         catch (Exception ex)
         {
@@ -108,7 +144,13 @@ public class CharacterService
         Response<string> response = new Response<string>();
         try
         {
-            response = await Consumer.Execute<string>($"https://localhost:7082/api/Character/AttackEnemy?idCharacter={characterId}&idEnemy={enemyId}", methodHttp.POST, "");
+            var jwt = await _protectedLocalStorage.GetAsync<string>("jwt");
+            string token = jwt.Success ? jwt.Value : "";
+            response = await Consumer.Execute<string, string>($"https://localhost:7082/api/Character/AttackEnemy?idCharacter={characterId}&idEnemy={enemyId}", methodHttp.POST, "", token);
+        }
+        catch(CryptographicException ex)
+        {
+            await _protectedLocalStorage.DeleteAsync("jwt");
         }
         catch (Exception ex)
         {

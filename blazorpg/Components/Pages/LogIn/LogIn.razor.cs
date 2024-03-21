@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using blazorpg.Data.Models;
 using blazorpg.Data.Services;
-using blazorpg.Components.Pages.Character;
 
 namespace blazorpg.Components.Pages.LogIn;
 
@@ -12,15 +11,10 @@ public partial class LogIn : ComponentBase
     [Inject]
     public UserService UserService { get; set; }
 
-    public Data.Models.User user = new();
+    public User user = new();
 
     public string message = "";
-    public bool login { get; set; }
-
-    public LogIn()
-    {
-        login = true;
-    }
+    public bool login { get; set; } = true;
 
     public void ComponentLogin()
     {
@@ -37,11 +31,12 @@ public partial class LogIn : ComponentBase
 
         if (respuesta.Ok)
         {
-            Navigation.NavigateTo("/");
+            
+            Navigation.NavigateTo("/", forceLoad: true);
         }
         else
         {
-            message = respuesta.Message;
+            message = respuesta.Data;
         }
 
     }
@@ -53,7 +48,7 @@ public partial class LogIn : ComponentBase
 
         if (respuesta.Ok)
         {
-            Navigation.NavigateTo("/");
+            Navigation.NavigateTo("/", forceLoad: true);
             login = true;
         }
         else

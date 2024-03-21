@@ -1,5 +1,4 @@
-﻿using blazorpg.Components.Pages.Character;
-using blazorpg.Components.Shared;
+﻿using blazorpg.Components.Shared;
 using blazorpg.Data.Models;
 using blazorpg.Data.Services;
 using Microsoft.AspNetCore.Components;
@@ -19,29 +18,49 @@ namespace blazorpg.Components.Pages.Attack
 		public int idCharacter { get; set; }
 		public Modal ModalDialog;
 		public string AttackResult;
+		public string message = "";
 
-		protected override async Task OnInitializedAsync()
+		protected override async Task OnParametersSetAsync()
 		{
 			ListCharacter = new List<Data.Models.Character>();
-			ListCharacter = (await CharacterService.GetCharacters()).Data;
+			var responsec = await CharacterService.GetCharacters();
+
+			if (responsec.Ok)
+			{
+				ListCharacter = responsec.Data;
+			}
+			else
+			{
+				message = responsec.Message;
+			}
 
 			ListEnemy = new List<Data.Models.Enemy>();
-			ListEnemy = (await EnemyService.GetEnemies()).Data;
+			var responsee = await EnemyService.GetEnemies();
+
+			if (responsee.Ok)
+			{
+				ListEnemy = responsee.Data;
+			}
+			else
+			{
+				message = responsee.Message;
+			}
 		}
 
 		public async Task StartAttack()
 		{
 			AttackResult = "";
-			Response<string> respuesta = await CharacterService.AttackEnemy(idCharacter.ToString(), idEnemy.ToString());
+			Response<string> response = await CharacterService.AttackEnemy(idCharacter.ToString(), idEnemy.ToString());
 
-			if (respuesta.Ok)
+			if (response.Ok)
 			{
-				AttackResult = respuesta.Data;
+				AttackResult = response.Data;
 				ModalDialog.Open();
 			}
 			else
 			{
-				AttackResult = respuesta.StatusCode;
+				message = response.Message;
+				AttackResult = response.StatusCode;
 				ModalDialog.Open();
 			}
 

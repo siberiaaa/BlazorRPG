@@ -14,25 +14,30 @@ namespace blazorpg.Components.Pages.Enemy
         public List<Data.Models.Enemy>? ListEnemy { get; set; }
 
         private EnemyCreate enemyCreate;
+        public string message = "";
 
-        protected override async Task OnInitializedAsync()
+        protected override async Task OnParametersSetAsync()
         {
             ListEnemy = new List<Data.Models.Enemy>();
-            ListEnemy = (await enemyService.GetEnemies()).Data;
-        }
 
-        //public void Create(){
-        //    Navigation.NavigateTo("/characters/create");
-        //}
+            var response = await enemyService.GetEnemies();
+
+            if (response.Ok)
+            {
+                ListEnemy = response.Data;
+            }
+            else
+            {
+                message = response.Message;
+            }
+        }
 
         public async Task Remove(string id)
         {
             var response = await enemyService.DeleteEnemy(id);
 
-
                 await GetAll();
   
-
             //Modal response.Message
         }
 
@@ -43,6 +48,10 @@ namespace blazorpg.Components.Pages.Enemy
             {
                 await GetAll();
             }
+            else
+            {
+                message = response.Message;
+            }
 
             //Modal response.Message
         }
@@ -51,9 +60,14 @@ namespace blazorpg.Components.Pages.Enemy
         {
             var response = await enemyService.GetEnemies();
 
-            ListEnemy = response.Data;
-
-            //return Task.CompletedTask; ns pq
+            if (response.Ok)
+            {
+                ListEnemy = response.Data;
+            }
+            else
+            {
+                message = response.Message;
+            }
         }
     }
 }

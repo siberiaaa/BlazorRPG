@@ -2,14 +2,17 @@ using System.Net;
 using System.Text;
 using blazorpg.Data.Models;
 using Newtonsoft.Json;
-using System.Net.Http;
-using blazorpg.Components.Pages.Character;
-using System;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 namespace blazorpg.Data;
 public class Consumer
 {
+    public readonly ProtectedLocalStorage _protectedLocalStorage;
+    public Consumer(ProtectedLocalStorage protectedLocalStorage)
+    {
+        _protectedLocalStorage = protectedLocalStorage;
+    }
+
     private static HttpMethod CreateHttpMethod(methodHttp method)
     {
         switch (method)
@@ -27,11 +30,10 @@ public class Consumer
         }
     }
 
-
-    public static async Task<Response<T>> Execute<T>(string url, methodHttp method, T objectRequest, bool autenticar = true)
+    public static async Task<Response<Tout>> Execute<Tin, Tout>(string url, methodHttp method, Tin objectRequest, string jwt = "")
     {
 
-        Response<T> response = new Response<T>();
+        Response<Tout> response = new Response<Tout>();
         try
         {
             using (HttpClient client = new HttpClient())
@@ -51,9 +53,9 @@ public class Consumer
                     Content = (method != methodHttp.GET) ? method != methodHttp.DELETE ? bytecontent : null : null
                 };
 
-                if(autenticar)
+                if (jwt != "")
                 {
-                    request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", 'asdasd');
+                    request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwt);
                 }
 
                 using (HttpResponseMessage res = await client.SendAsync(request))
@@ -63,18 +65,15 @@ public class Consumer
                         string data = await content.ReadAsStringAsync();
                         if (data != null)
                         {
-                            if (typeof(T) == typeof(string)) //JsonConvert tonto da error al deserializar strings
+                            if (typeof(Tout) == typeof(string)) //JsonConvert tonto da error al deserializar strings
                             {
-                                response.Data = (T)Convert.ChangeType(data, typeof(T));
+                                response.Data = (Tout)Convert.ChangeType(data, typeof(Tout));
                             }
                             else
                             {
-                                response.Data = JsonConvert.DeserializeObject<T>(data);
+                                response.Data = JsonConvert.DeserializeObject<Tout>(data);
                             }
                         }
-
-
-
 
                         response.StatusCode = res.StatusCode.ToString();
 
@@ -83,13 +82,11 @@ public class Consumer
                         {
                             response.Ok = true;
                         }
-
+                      
 
                     }
                 }
             }
-
-            //Console.WriteLine(response.Data);
         }
         catch (WebException ex)
         {
@@ -100,12 +97,21 @@ public class Consumer
             response.Ok = false; //?
             if (!response.Ok) response.Message = $"Response not OK\nStatus code: {response.StatusCode}"; //asd
         }
+        catch (JsonSerializationException) //Invalid token 
+        {
+            //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImhvbGEiLCJpZCI6IjEiLCJuYmYiOjE3MTA5Nzc3ODIsImV4cCI6MTcxMDk3ODM4MiwiaWF0IjoxNzEwOTc3NzgyfQ.Mw8nvDYQpZh44GVak1i8IyTyk4K_Bpu_fqUU7T4RKTw"
+
+            response.StatusCode = "Token invalid";
+            response.Message = "Token invalid error, sign in again";
+            response.Ok = false; 
+        }
         catch (Exception ex)
         {
             response.StatusCode = "App error";
             response.Message = ex.Message;
-            response.Ok = false; //?
+            response.Ok = false;
         }
+
         return response;
 
 

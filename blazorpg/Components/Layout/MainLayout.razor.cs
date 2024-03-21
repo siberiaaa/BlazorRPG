@@ -1,21 +1,46 @@
 ﻿using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Components;
-using blazorpg.Data.Models;
-using blazorpg.Data.Services;
+using System.Security.Cryptography;
 
 namespace blazorpg.Components.Layout;
 
 public partial class MainLayout
 {
-
     [Inject]
-    ProtectedSessionStorage ProtectedSessionStore { get; set; }
-    string? token;
+    public NavigationManager Navigation { get; set; }
+    [Inject]
+    ProtectedLocalStorage ProtectedLocalStorage { get; set; }
+    string? token = "";
 
-    protected override async Task OnInitializedAsync()
+    private bool isConnected;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var jwt = await ProtectedSessionStore.GetAsync<string>("jwt");
-        token = jwt.Success ? jwt.Value : "";
+        if (firstRender)
+        {
+            isConnected = true;
+            await LoadStateAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadStateAsync()
+    {
+        try{
+            var jwt = await ProtectedLocalStorage.GetAsync<string>("jwt");
+            token = jwt.Success ? jwt.Value : "";
+        }
+        catch(CryptographicException ex)
+        {
+            logout();
+        }
+        
+    }
+
+    public async void logout()
+    {
+        await ProtectedLocalStorage.DeleteAsync("jwt");
+        Navigation.NavigateTo("/", forceLoad: true);
     }
 
 

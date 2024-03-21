@@ -31,3 +31,35 @@ D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorp
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.sourcelink.json
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Siberia\Estudios\Gracosoft\Nivel III\Siberia 3\ASP.NET Core\BlazorRPG\blazorpg\obj\Debug\net8.0\blazorpg.csproj.CopyComplete
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.csproj.AssemblyReference.cache
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.AssemblyInfoInputs.cache
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.AssemblyInfo.cs
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.csproj.CoreCompileInputs.cache
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.dll
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\refint\blazorpg.dll
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.pdb
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\appsettings.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.staticwebassets.runtime.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.exe
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.deps.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.runtimeconfig.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.dll
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\blazorpg.pdb
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets\msbuild.blazorpg.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets\msbuild.build.blazorpg.props
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.blazorpg.props
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.blazorpg.props
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\scopedcss\bundle\blazorpg.styles.css
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\scopedcss\projectbundle\blazorpg.bundle.scp.css
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.csproj.Up2Date
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\blazorpg.genruntimeconfig.cache
+C:\Users\vil20\OneDrive\Documentos\Siberia\Gracosoft\BlazorRPG-main\blazorpg\obj\Debug\net8.0\ref\blazorpg.dll
